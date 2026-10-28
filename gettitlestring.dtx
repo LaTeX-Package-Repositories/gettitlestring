@@ -1,13 +1,14 @@
 % \iffalse meta-comment
 %
 % File: gettitlestring.dtx
-% Version: 2019/12/15 v1.6
+% Version: 2026/10/27 v1.6a
 % Info: Cleanup title references
 %
 % Copyright (C)
 %    2009, 2010 Heiko Oberdiek
 %    2016-2019 Oberdiek Package Support Group
-%    https://github.com/ho-tex/gettitlestring/issues
+%    2026 LaTeX Project
+%    https://github.com/LaTeX-Package-Repositories/gettitlestring
 %
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either
@@ -22,8 +23,7 @@
 % This work has the LPPL maintenance status "maintained".
 %
 % The Current Maintainers of this work are
-% Heiko Oberdiek and the Oberdiek Package Support Group
-% https://github.com/ho-tex/gettitlestring/issues
+% Heiko Oberdiek and the LaTeX Project.
 %
 % The Base Interpreter refers to any `TeX-Format',
 % because some files are installed in TDS:tex/generic//.
@@ -57,7 +57,7 @@
 %    use A4 as paper format:
 %       \PassOptionsToClass{a4paper}{article}
 %
-%    Programm calls to get the documentation (example):
+%    Program calls to get the documentation (example):
 %       pdflatex gettitlestring.dtx
 %       makeindex -s gind.ist gettitlestring.idx
 %       pdflatex gettitlestring.dtx
@@ -84,7 +84,7 @@
 \input docstrip.tex
 \Msg{************************************************************************}
 \Msg{* Installation}
-\Msg{* Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)}
+\Msg{* Package: gettitlestring 2026/10/27 v1.6a Cleanup title references (HO)}
 \Msg{************************************************************************}
 
 \keepsilent
@@ -96,11 +96,12 @@
 This is a generated file.
 
 Project: gettitlestring
-Version: 2019/12/15 v1.6
+Version: 2026/10/27 v1.6a
 
 Copyright (C)
    2009, 2010 Heiko Oberdiek
    2016-2019 Oberdiek Package Support Group
+   2026 LaTeX Project
 
 This work may be distributed and/or modified under the
 conditions of the LaTeX Project Public License, either
@@ -115,8 +116,7 @@ LaTeX version 2005/12/01 or later.
 This work has the LPPL maintenance status "maintained".
 
 The Current Maintainers of this work are
-Heiko Oberdiek and the Oberdiek Package Support Group
-https://github.com/ho-tex/gettitlestring/issues
+Heiko Oberdiek and the LaTeX Project.
 
 
 The Base Interpreter refers to any `TeX-Format',
@@ -162,7 +162,7 @@ and the derived files
 %<*driver>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesFile{gettitlestring.drv}%
-  [2019/12/15 v1.6 Cleanup title references (HO)]%
+  [2026/10/27 v1.6a Cleanup title references (HO)]%
 \documentclass{ltxdoc}
 \usepackage{holtxdoc}[2011/11/22]
 \begin{document}
@@ -176,9 +176,9 @@ and the derived files
 % \GetFileInfo{gettitlestring.drv}
 %
 % \title{The \xpackage{gettitlestring} package}
-% \date{2019/12/15 v1.6}
+% \date{2026/10/27 v1.6a}
 % \author{Heiko Oberdiek\thanks
-% {Please report any issues at \url{https://github.com/ho-tex/gettitlestring/issues}}}
+% {Please report any issues at \url{https://github.com/LaTeX-Package-Repositories/gettitlestring/issues}}}
 %
 % \maketitle
 %
@@ -204,16 +204,16 @@ and the derived files
 % \cs{GetTitleStringExpand} \M{text}\\
 % \cs{GetTitleStringNonExpand} \M{text}
 % \end{declcs}
-% Macro \cs{GetTitleString} tries to remove unwanted stuff from \meta{text}
-% the result is stored in Macro \cs{GetTitleStringResult}.
+% Macro \cs{GetTitleString} tries to remove unwanted stuff from \meta{text}.
+% The result is stored in the macro \cs{GetTitleStringResult}.
 % Two methods are available:
 % \begin{description}
 % \item[\cs{GetTitleStringExpand}:]
 % The \meta{text} is expanded in a context where the unwanted
 % macros are redefined to remove themselves.
 % This is the method used in packages \xpackage{titleref}~\cite{titleref},
-% \xpackage{zref-titleref}~\cite{zref}
-% or class \xclass{memoir}~\cite{memoir}.
+% \xpackage{zref-titleref}~\cite{zref},
+% and class \xclass{memoir}~\cite{memoir}.
 % \cs{protect} is supported, but fragile material might break.
 % \item[\cs{GetTitleStringNonExpand}:]
 % The \meta{text} is not expanded. Thus the removal of unwanted
@@ -223,10 +223,10 @@ and the derived files
 % if it is not hidden inside curly braces or part of macro
 % definitions. Thus the removal of unwanted stuff might not be
 % complete, but fragile material will not break.
-% (But the result string can break at a later time, of course).
+% (But the result string can break at a later time, of course.)
 % \end{description}
 % Option \xoption{expand} controls which method is used by
-% macro \cs{GetTitleString}.
+% the macro \cs{GetTitleString}.
 %
 % \begin{declcs}{GetTitleStringDisableCommands} \M{code}
 % \end{declcs}
@@ -235,7 +235,7 @@ and the derived files
 % Additional definitions can be given for macros that
 % should be removed.
 % Keep in mind that expansion means that the definitions
-% must work in expandable context. Macros like
+% must work in an expandable context. Macros like
 % \cs{@ifstar} or \cs{@ifnextchar} or optional arguments
 % will not work. The macro names in \meta{code} may contain
 % the at sign |@|, it has catcode 11 (letter).
@@ -245,12 +245,12 @@ and the derived files
 % \begin{description}
 % \item[\xoption{expand}:] Boolean option, takes values |true| or |false|.
 % No value means |true|. The option specifies the method to remove
-% unwanted stuff from the title string, see below.
+% unwanted stuff from the title string; see the descriptions above.
 % \end{description}
 % Options can be set at the following places:
 % \begin{itemize}
 % \item \cs{usepackage}
-% \item Configuration file \xfile{gettitlestring.cfg}.
+% \item Configuration file \xfile{gettitlestring.cfg}
 % \item \cs{GetTitleStringSetup}
 % \end{itemize}
 %
@@ -332,7 +332,7 @@ and the derived files
   \fi
 \expandafter\x\csname ver@gettitlestring.sty\endcsname
 \ProvidesPackage{gettitlestring}%
-  [2019/12/15 v1.6 Cleanup title references (HO)]%
+  [2026/10/27 v1.6a Cleanup title references (HO)]%
 %    \end{macrocode}
 %
 %    \begin{macrocode}
@@ -803,6 +803,10 @@ and the derived files
 %   \begin{Version}{2019/12/15 v1.6}
 %   \item
 %     Documentation updates.
+%   \end{Version}
+%   \begin{Version}{2026/10/27 v1.6a}
+%   \item
+%     Improve enumitem support (\href{https://github.com/LaTeX-Package-Repositories/gettitlestring/issues/1}{\texttt{gh/\#1}}).
 %   \end{Version}
 % \end{History}
 %
