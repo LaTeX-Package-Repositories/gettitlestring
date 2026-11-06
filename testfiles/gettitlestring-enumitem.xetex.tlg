@@ -1,0 +1,17 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+============================================================
+TEST 1: nameref with enumitem
+============================================================
+> \box...=
+\hbox(6.94+0.10999)x29.17
+.\TU/lmr/m/n/10 a
+.\glue 3.33 plus 1.665 minus 1.11
+.\TU/lmr/m/n/10 label
+.\hbox(0.0+0.0)x0.0
+! OK.
+<argument> \TESTBOX 
+l. ...\ENDBOXTEST
+============================================================
+[1
+] (gettitlestring-enumitem.aux)
