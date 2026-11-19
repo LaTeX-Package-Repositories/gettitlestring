@@ -1,0 +1,18 @@
+\input{regression-test}
+\documentclass{article}
+\usepackage{enumitem}
+\usepackage{nameref}
+
+\begin{document}
+\START
+\begin{description}
+\item[a label\label{Ref}] Some text
+\end{description}
+
+\begin{itemize}
+\item
+\BEGINBOXTEST{nameref with enumitem}
+\nameref{Ref}
+\ENDBOXTEST
+\end{itemize}
+\end{document}
